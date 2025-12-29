@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your shopping cart - ElectroMart">
+    <title>Cart - ElectroMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo"><span class="icon">⚡</span><span>ElectroMart</span></a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="cart.html" class="nav-link active">Cart</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="cart.html" class="nav-cart">🛒<span class="cart-count" id="cartCount">0</span></a>
+                    <a href="login.html" class="nav-user" id="userArea">
+                        <div class="nav-user-avatar" id="userAvatar">👤</div>
+                        <span id="userName">Login</span>
+                    </a>
+                    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <span>Cart</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Content -->
+    <section class="section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 350px; gap: 2rem;">
+                <!-- Cart Items -->
+                <div>
+                    <div id="cart-items"></div>
+                    <div id="empty-cart" class="cart-empty hidden">
+                        <h3>🛒 Your cart is empty</h3>
+                        <p style="color: var(--gray-400); margin-bottom: 2rem;">Looks like you haven't added any items
+                            yet.</p>
+                        <a href="shop.html" class="btn btn-primary">Start Shopping</a>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div id="cart-summary" class="cart-summary hidden">
+                    <h3 style="margin-bottom: 1.5rem;">Order Summary</h3>
+                    <div class="cart-summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="cart-summary-row">
+                        <span>Shipping</span>
+                        <span id="shipping">$0.00</span>
+                    </div>
+                    <div class="cart-summary-row total">
+                        <span>Total</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    <p style="font-size: 0.875rem; color: var(--gray-400); margin: 1rem 0;">Free shipping on orders over
+                        $50!</p>
+                    <button class="btn btn-primary btn-lg" style="width: 100%;"
+                        onclick="alert('Checkout coming soon!')">
+                        Proceed to Checkout
+                    </button>
+                    <a href="shop.html" class="btn btn-ghost" style="width: 100%; margin-top: 1rem;">Continue
+                        Shopping</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 ElectroMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const firebaseConfig = { apiKey: "YOUR_API_KEY", authDomain: "YOUR_PROJECT.firebaseapp.com", projectId: "YOUR_PROJECT_ID" };
+        if (firebaseConfig.apiKey !== "YOUR_API_KEY") firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', renderCartPage);</script>
+</body>
+
+</html>

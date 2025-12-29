@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product details - ElectroMart">
+    <title>Product Details - ElectroMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-logo">
+                <span class="icon">⚡</span>
+                <span>ElectroMart</span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="cart.html" class="nav-link">Cart</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="currency-display" id="currencyDisplay">
+                    <span>💱</span>
+                    <span class="rate" id="usdRate">Loading...</span>
+                </div>
+                <a href="cart.html" class="nav-cart" id="cartIcon">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <a href="login.html" class="nav-user" id="userArea">
+                    <div class="nav-user-avatar" id="userAvatar">👤</div>
+                    <span id="userName">Login</span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1 id="pageTitle">Product Details</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <a href="shop.html">Shop</a>
+                <span class="separator">/</span>
+                <span id="breadcrumbProduct">Product</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail -->
+    <section class="section">
+        <div class="container">
+            <div class="product-detail" id="productDetail">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <img id="productImage" src="" alt="Product Image">
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <span id="productBadge" class="product-card-badge" style="display: none;"></span>
+                    <h1 id="productName">Loading...</h1>
+                    <div class="product-meta">
+                        <span id="productBrand">Brand</span>
+                        <span>•</span>
+                        <span id="productCategory">Category</span>
+                        <span>•</span>
+                        <span id="productRating">⭐ 0.0</span>
+                    </div>
+                    <div class="product-price" id="productPrice">$0.00</div>
+                    <p class="product-description" id="productDescription">
+                        Loading product description...
+                    </p>
+
+                    <!-- Add to Cart -->
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button id="decreaseQty" aria-label="Decrease quantity">−</button>
+                            <span id="quantity">1</span>
+                            <button id="increaseQty" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button class="btn btn-primary btn-lg" id="addToCartBtn">
+                            🛒 Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Stock Info -->
+                    <p id="stockInfo" style="color: var(--success); margin-bottom: var(--space-4);">
+                        ✓ In Stock
+                    </p>
+
+                    <!-- Specifications -->
+                    <div class="product-specs" id="productSpecs">
+                        <h3>Specifications</h3>
+                        <div class="specs-list" id="specsList">
+                            <!-- Specs loaded via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="mt-8">
+                <h2 class="section-title" style="text-align: left;">Related Products</h2>
+                <div class="products-grid" id="relatedProducts">
+                    <!-- Related products loaded via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <span class="icon">⚡</span>
+                        <span>ElectroMart</span>
+                    </a>
+                    <p>Your trusted source for premium electrical supplies.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="shop.html" class="footer-link">Shop</a>
+                        <a href="cart.html" class="footer-link">Cart</a>
+                        <a href="login.html" class="footer-link">Account</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Categories</h4>
+                    <div class="footer-links">
+                        <a href="shop.html?category=cables" class="footer-link">Cables</a>
+                        <a href="shop.html?category=breakers" class="footer-link">Circuit Breakers</a>
+                        <a href="shop.html?category=lighting" class="footer-link">Lighting</a>
+                        <a href="shop.html?category=tools" class="footer-link">Tools</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="footer-links">
+                        <span class="footer-link">📍 Istanbul, Turkey</span>
+                        <span class="footer-link">📧 info@electromart.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 ElectroMart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Initialize product detail page
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id'));
+
+            if (!productId) {
+                window.location.href = 'shop.html';
+                return;
+            }
+
+            const product = products.find(p => p.id === productId);
+
+            if (!product) {
+                window.location.href = 'shop.html';
+                return;
+            }
+
+            // Update page title and breadcrumb
+            document.title = `${product.name} - ElectroMart`;
+            document.getElementById('pageTitle').textContent = product.name;
+            document.getElementById('breadcrumbProduct').textContent = product.name;
+
+            // Product image
+            const img = document.getElementById('productImage');
+            img.src = product.image;
+            img.alt = product.name;
+            img.onerror = function () {
+                this.src = 'https://placehold.co/400x400/2d2d44/ffffff?text=Product';
+            };
+
+            // Badge
+            const badge = document.getElementById('productBadge');
+            if (product.badge) {
+                badge.textContent = product.badge.toUpperCase();
+                badge.className = `product-card-badge badge-${product.badge}`;
+                badge.style.display = 'inline-block';
+            }
+
+            // Info
+            document.getElementById('productName').textContent = product.name;
+            document.getElementById('productBrand').textContent = product.brand;
+            document.getElementById('productCategory').textContent = product.category;
+            document.getElementById('productRating').textContent = `⭐ ${product.rating}`;
+            document.getElementById('productPrice').textContent = `$${product.price.toFixed(2)} / ${product.unit}`;
+            document.getElementById('productDescription').textContent = product.description;
+
+            // Stock info
+            const stockInfo = document.getElementById('stockInfo');
+            if (product.stock > 0) {
+                stockInfo.innerHTML = `✓ In Stock (${product.stock} ${product.unit}s available)`;
+                stockInfo.style.color = 'var(--success)';
+            } else {
+                stockInfo.innerHTML = '✕ Out of Stock';
+                stockInfo.style.color = 'var(--error)';
+            }
+
+            // Specifications
+            const specsList = document.getElementById('specsList');
+            let specsHTML = `
+                <div class="spec-item"><span class="spec-label">Brand</span><span class="spec-value">${product.brand}</span></div>
+                <div class="spec-item"><span class="spec-label">Category</span><span class="spec-value">${product.category}</span></div>
+                <div class="spec-item"><span class="spec-label">Unit</span><span class="spec-value">${product.unit}</span></div>
+                <div class="spec-item"><span class="spec-label">Rating</span><span class="spec-value">${product.rating} / 5</span></div>
+            `;
+            if (product.thickness) {
+                specsHTML += `<div class="spec-item"><span class="spec-label">Thickness</span><span class="spec-value">${product.thickness}</span></div>`;
+            }
+            if (product.color) {
+                specsHTML += `<div class="spec-item"><span class="spec-label">Color</span><span class="spec-value">${product.color}</span></div>`;
+            }
+            specsList.innerHTML = specsHTML;
+
+            // Quantity controls
+            let quantity = 1;
+            const quantitySpan = document.getElementById('quantity');
+
+            document.getElementById('decreaseQty').addEventListener('click', function () {
+                if (quantity > 1) {
+                    quantity--;
+                    quantitySpan.textContent = quantity;
+                }
+            });
+
+            document.getElementById('increaseQty').addEventListener('click', function () {
+                if (quantity < product.stock) {
+                    quantity++;
+                    quantitySpan.textContent = quantity;
+                }
+            });
+
+            document.getElementById('addToCartBtn').addEventListener('click', function () {
+                Cart.addItem(product.id, quantity);
+            });
+
+            // Related Products
+            const relatedContainer = document.getElementById('relatedProducts');
+            const related = products
+                .filter(p => p.category === product.category && p.id !== product.id)
+                .slice(0, 4);
+
+            if (related.length > 0 && relatedContainer) {
+                relatedContainer.innerHTML = related.map(p => Shop.createProductCard(p)).join('');
+            }
+        });
+    </script>
+</body>
+
+</html>
