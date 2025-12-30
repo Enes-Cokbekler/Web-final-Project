@@ -4,7 +4,7 @@ const Shop = {
         category: 'all',
         brand: 'all',
         minPrice: 0,
-        maxPrice: 100,
+        maxPrice: 350,
         search: ''
     },
 
@@ -84,6 +84,11 @@ const Shop = {
     createProductCard(product) {
         const badgeHTML = product.badge ? `<span class="product-card-badge badge-${product.badge}">${product.badge.toUpperCase()}</span>` : '';
 
+        // Use API formatPrice if available, otherwise fallback to USD
+        const formattedPrice = (typeof API !== 'undefined' && API.formatPrice)
+            ? API.formatPrice(product.price)
+            : `$${product.price.toFixed(2)}`;
+
         return `
       <article class="product-card" data-id="${product.id}">
         ${badgeHTML}
@@ -104,7 +109,7 @@ const Shop = {
             <a href="product.html?id=${product.id}">${product.name}</a>
           </h3>
           <div class="product-card-price">
-            <span class="current">$${product.price.toFixed(2)}</span>
+            <span class="current" data-usd-price="${product.price}">${formattedPrice}</span>
             ${product.unit ? `<span style="color: var(--gray-500); font-size: 0.875rem;">/ ${product.unit}</span>` : ''}
           </div>
           <div class="product-card-footer">

@@ -160,8 +160,13 @@
 }
 
 .cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: var(--space-16) 0;
+    padding: var(--space-16) var(--space-4);
+    min-height: 400px;
 }
 
 .cart-empty h3 {

@@ -34,6 +34,10 @@
                     <li><a href="about.html" class="nav-link">About Us</a></li>
                 </ul>
                 <div class="nav-actions">
+                    <div class="currency-display" id="currencyDisplay">
+                        <span>💱</span>
+                        <span class="rate" id="usdRate">USD</span>
+                    </div>
                     <a href="cart.html" class="nav-cart">🛒<span class="cart-count" id="cartCount">0</span></a>
                     <a href="login.html" class="nav-user" id="userArea">
                         <div class="nav-user-avatar" id="userAvatar">👤</div>
@@ -108,10 +112,10 @@
                     <div class="filter-section">
                         <h3 class="filter-title">Price Range</h3>
                         <div class="price-range">
-                            <input type="range" id="price-range" min="0" max="100" value="100">
+                            <input type="range" id="price-range" min="0" max="350" value="350">
                             <div class="price-range-values">
                                 <span>$0</span>
-                                <span id="price-value">$100</span>
+                                <span id="price-value">$350</span>
                             </div>
                         </div>
                     </div>

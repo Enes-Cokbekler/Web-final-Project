@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initMobileMenu();
     initScrollEffects();
+    initThemeToggle();
 });
 
 // Navigation functionality
@@ -229,5 +230,72 @@ function toggleFilters() {
     const sidebar = document.querySelector('.shop-sidebar');
     if (sidebar) {
         sidebar.classList.toggle('open');
+    }
+}
+
+// Theme Toggle Functionality
+function initThemeToggle() {
+    const THEME_KEY = 'electromart_theme';
+
+    // Get saved theme or default to dark
+    const savedTheme = localStorage.getItem(THEME_KEY) || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Create and inject theme toggle button
+    const navActions = document.querySelector('.nav-actions');
+    if (navActions) {
+        const themeBtn = document.createElement('button');
+        themeBtn.className = 'theme-toggle';
+        themeBtn.id = 'themeToggle';
+        themeBtn.setAttribute('aria-label', 'Toggle theme');
+        themeBtn.innerHTML = savedTheme === 'dark' ? '☀️' : '🌙';
+        themeBtn.style.cssText = `
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-lg);
+            background: var(--gray-800);
+            color: var(--white);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        `;
+
+        // Insert before currency display or at the beginning
+        const currencyDisplay = navActions.querySelector('.currency-display');
+        if (currencyDisplay) {
+            navActions.insertBefore(themeBtn, currencyDisplay);
+        } else {
+            navActions.insertBefore(themeBtn, navActions.firstChild);
+        }
+
+        // Add hover effect
+        themeBtn.addEventListener('mouseenter', () => {
+            themeBtn.style.background = 'var(--primary)';
+            themeBtn.style.transform = 'translateY(-2px)';
+        });
+        themeBtn.addEventListener('mouseleave', () => {
+            themeBtn.style.background = 'var(--gray-800)';
+            themeBtn.style.transform = 'none';
+        });
+
+        // Toggle theme on click
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem(THEME_KEY, newTheme);
+            themeBtn.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
+
+            // Add a subtle animation
+            themeBtn.style.transform = 'scale(1.2) rotate(180deg)';
+            setTimeout(() => {
+                themeBtn.style.transform = 'none';
+            }, 300);
+        });
     }
 }

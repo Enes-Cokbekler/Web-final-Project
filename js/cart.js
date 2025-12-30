@@ -205,9 +205,7 @@ const Cart = {
             } else {
                 loginPrompt.style.display = 'none';
                 checkoutBtn.onclick = () => {
-                    alert('Thank you for your order! Order confirmation sent to ' + user.email);
-                    Cart.clearCart();
-                    Cart.renderCartPage();
+                    window.location.href = 'checkout.html';
                 };
             }
         }
